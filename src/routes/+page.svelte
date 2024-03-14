@@ -23,6 +23,7 @@
 				values.push(evaluate(f.replaceAll('$x', `${x}`)))
 			} catch {
 				values = []
+				return
 			}
 		}
 		values = values
@@ -64,10 +65,10 @@
 
 <div class="relative w-screen h-screen grid justify-center items-center m-0 text-center bg-black">
 	<input style="background-color: transparent;" type="text" bind:value={f} on:input={draw}>
-	<div class="rounded-xl text-white m-auto overflow-hidden flex w-[100vw] h-[100vh] justify-center items-center mx-auto my-auto text-center noselect">
+	<div transition:scale|global="{{ duration: 500, delay: 500 }}"
+		class="rounded-xl text-white m-auto overflow-hidden flex w-[100vw] h-[100vh] justify-center items-center mx-auto my-auto text-center noselect">
 		{#each values as y}
-			<div transition:scale|global="{{ duration: 200, delay: 100 }}"
-			class={`text-7xl font-extrabold`}
+			<div class={`text-7xl font-extrabold`}
 			style:margin-bottom={`${(y)}%`}
 			style:width={"1vw"}
 			style:height={"1vh"}
