@@ -7,7 +7,7 @@
 
 	let values: number[] = []
 	let i = "/"
-	let f: string = `2sin($x)`
+	let f: string = `sin($x)`
 	console.log("You can change the icon with the ?icon query parameter or with typing i=")
 
 	function draw() {
